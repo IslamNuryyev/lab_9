@@ -10,14 +10,9 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 public class Controller {
     @FXML Canvas canvas;
@@ -29,8 +24,6 @@ public class Controller {
         drawLineChart(stockPrices1, stockPrices2, canvas);
     }
 
-    
-    
     private List<Float> downloadStockPrices(String ticker_symbol ) {
         List<Float> stockPrices = new ArrayList<>();
 
@@ -44,8 +37,6 @@ public class Controller {
 
         try {
             URL url = new URL("https://query1.finance.yahoo.com/v7/finance/download/" + ticker_symbol + "?period1=" + periodStart + "&period2="  + periodEnd + "&interval=1mo&events=history&includeAdjustedClose=true");
-            // URL url = new URL("https://query1.finance.yahoo.com/v7/finance/download/GOOG?period1=1262322000&period2=1451538000&interval=1mo&events=history&includeAdjustedClose=true");
-            // URL url = new URL("https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1262322000&period2=1451538000&interval=1mo&events=history&includeAdjustedClose=true");
 
             URLConnection conn = url.openConnection();
             conn.setDoOutput(false);
